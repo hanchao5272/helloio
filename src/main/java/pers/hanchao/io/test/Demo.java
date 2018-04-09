@@ -2,6 +2,9 @@ package pers.hanchao.io.test;
 
 import org.apache.log4j.Logger;
 
+import java.io.FileDescriptor;
+import java.io.InputStream;
+
 public class Demo {
     private static final Logger LOGGER = Logger.getLogger(Demo.class);
     /**
