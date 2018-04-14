@@ -33,7 +33,7 @@ public class FileIODemo {
         11 FileOutputStream与FileInputStream FileOutputStream的写方法和FileInputStream的读方法
         12 FileWriter与FileReader            FileWriter的写方法与FileReader的读方法
          */
-        int type = 11;
+        int type = 12;
         switch (type) {
             case 0:
                 System.out.println("字节流处理的是字节流(byte)，数值范围：0~255");
@@ -129,7 +129,7 @@ public class FileIODemo {
                 System.out.println("20013 ==> " + fis.read());
                 break;
             case 11:
-                //FileOutputStream的基本方法
+                //FileOutputStream的写方法和FileInputStream的读方法
                 //fos.write(byte):向文件中写一个byte
                 int a = 66;
                 fos.write(a);
@@ -143,7 +143,7 @@ public class FileIODemo {
                 //fis.available():剩余可读byte数量
                 if (fis.available() > 0){
                     System.out.println("剩余可读byte数量：" + fis.available());
-                    //fis.read()读取一个字节
+                    //fis.read():读取一个字节
                     System.out.println("\nfis.read()读取一个字节: " +  fis.read());
                     System.out.println("剩余可读byte数量：" + fis.available());
                     //fis.read(bytes)：读取bytes.length数组长度的字节并将读取结果放在bytes中
@@ -154,7 +154,7 @@ public class FileIODemo {
                         System.out.println(bb[j] + " ==> " + (char)bb[j]);
                     }
                     System.out.println("剩余可读byte数量：" + fis.available());
-                    //fis.read(bytes,off,len)：读取len长度的字节，并将其在bytes数组的第off个元素开始存放锁
+                    //fis.read(bytes,off,len)：读取len长度的字节，并将其在bytes数组的第off个元素开始存放
                     byte[] bbb = new byte[3];
                     int length2 = fis.read(bbb,1,1);
                     System.out.println("\n读取了" + length2 + "个字节");
@@ -170,6 +170,39 @@ public class FileIODemo {
                         System.out.println(aa[j] + " ==> " + (char)aa[j]);
                     }
                     System.out.println("剩余可读byte数量：" + fis.available());
+                }
+                break;
+            case 12:
+                //FileWriter的写方法与FileReader的读方法
+                //fileWriter.write(int):向文件中写一个字符
+                int cc = 66;
+                fileWriter.write(cc);
+                //fileWriter.write(chars):向文件中写一个字符数组
+                char[] chars22 = new char[]{66,67,'中','国'};
+                fileWriter.write(chars22);
+                //fileWriter.write(chars,off,len):向文件中写一个字符数组的部分元素
+                fileWriter.write(chars22,3,1);
+                //fileWriter.write(String):向文件中写一个字符串
+                String ss = "hello";
+                fileWriter.write(ss);
+                //fileWriter.write(String,off,len):向文件中写一个字符串的部分字符
+                fileWriter.write(ss,1,2);
+                //将缓冲区的数据强制输出
+                fileWriter.flush();
+                //fileReader.read():读取一个字符
+                System.out.println("fileReader.read():读取一个字符-- " + fileReader.read());
+                //fileReader.read(chars)：读取chars.length个字符存放在chars中，并返回实际读取的字符数
+                char[] cbuf = new char[4];
+                int length = fileReader.read(cbuf);
+                System.out.println("\n读取了" + length + "个字符");
+                for (int j = 0; j < cbuf.length; j++) {
+                    System.out.println(cbuf[j]);
+                }
+                //fileReader.read(chars,off,len)：读取len个字符，并从chars的第off个元素开始存放
+                int length3 = fileReader.read(cbuf,0,2);
+                System.out.println("\n读取了" + length3 + "个字符");
+                for (int j = 0; j < cbuf.length; j++) {
+                    System.out.println(cbuf[j]);
                 }
                 break;
             default:
