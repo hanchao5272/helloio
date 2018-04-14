@@ -100,4 +100,18 @@
     - CharArrayReader       介质流-从Char数组中读取数据
     - BufferedReader        缓冲
     - PipedReader           从与其它线程共用的管道中读取数据
+    
+    
+    
+-------------------------
+
+Stream ： One dimension , one direction .
+
+流：单维单向
+
+流的概念和实际水流的概念基本一致，水只可以从高向低一个方向流动。
+
+我们某时在目地喝了一口水，下次在同一个地点喝水已经不是当时的那片水了。
+
+
 
